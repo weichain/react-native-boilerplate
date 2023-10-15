@@ -1,10 +1,9 @@
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
 import { TamaguiProvider } from 'tamagui';
 
 import config from '@/../tamagui.config';
-import { usePreferencesStore } from '@/context/userPreferencesStore';
+import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useLoadFonts } from '@/hooks/useLoadFonts';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -46,13 +45,11 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   // Note: Example of using zustand for applying theme preferences
   const isDarkThemed = usePreferencesStore((state) => state.isDarkThemed);
 
   return (
-    <TamaguiProvider config={config} defaultTheme={colorScheme === 'dark' || isDarkThemed ? 'dark' : 'light'}>
+    <TamaguiProvider config={config} defaultTheme={isDarkThemed ? 'dark' : 'light'}>
       <QueryClientProvider client={queryClient}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

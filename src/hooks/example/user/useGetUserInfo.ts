@@ -1,5 +1,5 @@
-import { REACT_QUERY_KEYS } from '@/constants/react-query';
-import { userService } from '@/services/user.service';
+import { REACT_QUERY_KEYS } from '@/constants';
+import { userService } from '@/services/example/user.service';
 import { useQuery } from '@tanstack/react-query';
 
 // Note: Example of react-query hooks for calling endpoints

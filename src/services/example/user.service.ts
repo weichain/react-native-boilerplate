@@ -1,5 +1,5 @@
 import { type ApiResponse } from 'apisauce';
-import { api } from './api.config';
+import { api } from '../api.config';
 import { type UserInfo } from './api.types';
 
 // Note: Example of how to manage/write api services
@@ -22,6 +22,22 @@ class UserService {
     }
 
     return response.data;
+  }
+
+  async deleteUser(userID: number): Promise<void> {
+    const response: ApiResponse<unknown> = await api.delete(`/users/${userID}`);
+
+    if (!response.ok || !response.data) {
+      throw new Error('Could not delete user!');
+    }
+  }
+
+  async simulateError(): Promise<void> {
+    const response: ApiResponse<unknown> = await api.delete(`/error`);
+
+    if (!response.ok || !response.data) {
+      throw new Error('Could not delete user!');
+    }
   }
 }
 

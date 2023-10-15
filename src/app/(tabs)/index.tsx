@@ -1,16 +1,15 @@
 import { Button, H2, Separator, Spinner, Stack, Switch, Text } from 'tamagui';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
-import { usePreferencesStore } from '@/context/userPreferencesStore';
-import { useGetUserByID } from '@/hooks/user/useGetUserInfo';
+import { usePreferencesStore } from '@/context/example/userPreferencesStore';
+import { useGetUserByID } from '@/hooks/example/user/useGetUserInfo';
 
 export default function TabOneScreen() {
   // Note: Example of handling data fetching
   const { data, isLoading } = useGetUserByID(1);
 
   // Note: Example of using zustand for changing theme preferences
-  const isDarkThemed = usePreferencesStore((state) => state.isDarkThemed);
-  const toggleTheme = usePreferencesStore((state) => state.toggleTheme);
+  const { isDarkThemed, toggleTheme } = usePreferencesStore((state) => ({ ...state }));
 
   return (
     <Stack flex={1} alignItems="center" justifyContent="center" bg={'$background'}>
