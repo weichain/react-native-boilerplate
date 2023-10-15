@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from '@/constants';
 import { type ApiResponse } from 'apisauce';
 import { api } from '../api.config';
 import { type UserInfo } from './api.types';
@@ -8,17 +9,17 @@ class UserService {
     const response: ApiResponse<UserInfo> = await api.get(`/users/${id}`);
 
     if (!response.ok || !response.data) {
-      throw new Error('Could not fetch user information.');
+      throw new Error(ERROR_MESSAGE.USER_GET_BY_ID);
     }
 
     return response.data;
   }
 
-  async getAllUsers(): Promise<UserInfo[]> {
+  async getAll(): Promise<UserInfo[]> {
     const response: ApiResponse<UserInfo[]> = await api.get(`/users`);
 
     if (!response.ok || !response.data) {
-      throw new Error('Could not fetch user information list.');
+      throw new Error(ERROR_MESSAGE.USER_GET_ALL);
     }
 
     return response.data;
@@ -28,7 +29,7 @@ class UserService {
     const response: ApiResponse<unknown> = await api.delete(`/users/${userID}`);
 
     if (!response.ok || !response.data) {
-      throw new Error('Could not delete user!');
+      throw new Error(ERROR_MESSAGE.USER_DELETE_BY_ID);
     }
   }
 
@@ -36,7 +37,7 @@ class UserService {
     const response: ApiResponse<unknown> = await api.delete(`/error`);
 
     if (!response.ok || !response.data) {
-      throw new Error('Could not delete user!');
+      throw new Error(ERROR_MESSAGE.USER_DELETE_BY_ID);
     }
   }
 }

@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 export const useGetAllUsers = () => {
   return useQuery({
     queryKey: [REACT_QUERY_KEYS.USERS_COLLECTION],
-    queryFn: async () => await userService.getAllUsers(),
+    queryFn: async () => await userService.getAll(),
     retry: 10,
   });
 };

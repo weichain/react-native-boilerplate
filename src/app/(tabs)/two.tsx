@@ -1,7 +1,8 @@
 import { FlashList } from '@shopify/flash-list';
 import { FileEdit, Trash2 } from '@tamagui/lucide-icons';
-import { Button, H1, H4, Spinner, Stack, Text, XStack, styled } from 'tamagui';
+import { Button, H1, H4, Spinner, Stack, Text, XStack } from 'tamagui';
 
+import { Row } from '@/components/styled/Row';
 import { useGetAllUsers } from '@/hooks/example/user/useGetUserInfo';
 import { useDeleteUser, useSimulateError } from '@/hooks/example/user/useMutateUserInfo';
 import { type UserInfo } from '@/services/example/api.types';
@@ -60,18 +61,6 @@ function LoadingState() {
     </Stack>
   );
 }
-
-// Example of how to add simple 'styled' variants
-const Row = styled(XStack, {
-  name: 'Row',
-  variants: {
-    accent: {
-      true: {
-        backgroundColor: '$blue8',
-      },
-    },
-  } as const,
-});
 
 // Example of adding a custom ErrorBoundary screen
 export function ErrorBoundary(props: ErrorBoundaryProps) {
