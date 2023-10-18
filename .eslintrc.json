@@ -1,52 +1,67 @@
 {
-    "env": {
-      "browser": true,
-      "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/jsx-runtime", "plugin:react/recommended", "plugin:import/recommended", "standard-with-typescript", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"]
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["plugin:react/jsx-runtime", "plugin:react/recommended", "standard-with-typescript", "prettier"],
-    "overrides": [
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["react", "@typescript-eslint/eslint-plugin", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "nonblock-statement-body-position": ["error", "below"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "warn",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/restrict-template-expressions": "warn",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/naming-convention": [
+      2,
       {
-        "files": ["*.ts", "*.tsx"]
+        // "type" naming should be PascalCase
+        "custom": {
+          "match": false,
+          "regex": "send|start|find"
+        },
+        "format": ["PascalCase"],
+        "selector": "typeAlias"
       }
     ],
-    "parserOptions": {
-      "ecmaVersion": "latest",
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "sourceType": "module",
-      "project": ["./tsconfig.json"]
-    },
-    "plugins": ["react", "@typescript-eslint/eslint-plugin", "prettier"],
-    "rules": {
-      "prettier/prettier": "error",
-      "nonblock-statement-body-position": ["error", "below"],
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/no-unescaped-entities": "warn",
-      "@typescript-eslint/strict-boolean-expressions": "off",
-      "@typescript-eslint/no-misused-promises": "off",
-      "@typescript-eslint/no-floating-promises": "off",
-      "@typescript-eslint/restrict-template-expressions": "warn",
-      "@typescript-eslint/consistent-type-definitions": "off",
-      "@typescript-eslint/prefer-nullish-coalescing": "warn",
-      "@typescript-eslint/naming-convention": [
-        2,
-        {
-          // "type" naming should be PascalCase
-          "custom": {
-            "match": false,
-            "regex": "send|start|find"
-          },
-          "format": ["PascalCase"],
-          "selector": "typeAlias"
+    "import/order": [
+      2,
+      {
+        "groups": [["external", "builtin"], "internal", ["sibling", "parent"]],
+        "newlines-between": "always",
+        "pathGroups": [{ "pattern": "assets", "group": "internal", "position": "after" }],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
         }
-      ]
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
       }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": true,
+      "node": true
     }
   }
-  
+}

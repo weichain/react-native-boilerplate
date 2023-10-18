@@ -1,12 +1,12 @@
 import { FlashList } from '@shopify/flash-list';
 import { FileEdit, Trash2 } from '@tamagui/lucide-icons';
+import type { ErrorBoundaryProps } from 'expo-router';
 import { Button, H1, H4, Spinner, Stack, Text, XStack } from 'tamagui';
 
 import { Row } from '@/components/styled/Row';
 import { useGetAllUsers } from '@/hooks/example/user/useGetUserInfo';
 import { useDeleteUser, useSimulateError } from '@/hooks/example/user/useMutateUserInfo';
 import { type UserInfo } from '@/services/example/api.types';
-import type { ErrorBoundaryProps } from 'expo-router';
 
 export default function TabTwoScreen() {
   const { data, isLoading } = useGetAllUsers();

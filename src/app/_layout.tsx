@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { TamaguiProvider } from 'tamagui';
@@ -5,7 +6,6 @@ import { TamaguiProvider } from 'tamagui';
 import config from '@/../tamagui.config';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useLoadFonts } from '@/hooks/useLoadFonts';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export {
   // Catch any errors thrown by the Layout component.
