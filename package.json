@@ -10,7 +10,9 @@
     "test": "jest --watchAll",
     "prepare": "husky install",
     "lint": "bun eslint src",
-    "lint:fix": "bun lint --fix"
+    "lint:fix": "bun lint --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npx prettier src --write"
   },
   "jest": {
     "preset": "jest-expo"
