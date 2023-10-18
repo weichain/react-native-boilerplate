@@ -26,8 +26,8 @@ export default function TabTwoScreen() {
 }
 
 function RowItem({ item }: { item: UserInfo }) {
-  const { mutate, isLoading } = useDeleteUser();
-  const { mutate: simulateError, isLoading: isSimulationLoading } = useSimulateError();
+  const { mutate, isPending } = useDeleteUser();
+  const { mutate: simulateError, isPending: isSimulationLoading } = useSimulateError();
 
   const handleDeleteUser = () => {
     mutate(item.id);
@@ -47,7 +47,7 @@ function RowItem({ item }: { item: UserInfo }) {
           {isSimulationLoading ? <Spinner color="$red10" /> : <FileEdit color={'$red10'} size={'$1'} />}
         </Button>
         <Button chromeless disabled={!isOdd} opacity={!isOdd ? 0.5 : 1} onPress={handleDeleteUser}>
-          {isLoading ? <Spinner color="$red10" /> : <Trash2 color={'$red10'} size={'$1'} />}
+          {isPending ? <Spinner color="$red10" /> : <Trash2 color={'$red10'} size={'$1'} />}
         </Button>
       </XStack>
     </Row>

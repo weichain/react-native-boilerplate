@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 
 import { REACT_QUERY_KEYS } from '@/constants';
 import { userService } from '@/services/example/user.service';
@@ -14,9 +14,9 @@ export const useGetAllUsers = () => {
 };
 
 export const useGetUserByID = (id: number) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: [REACT_QUERY_KEYS.USERS_COLLECTION, id],
     queryFn: async () => await userService.getUserByID(id),
-    retry: 10,
+    retry: 1,
   });
 };

@@ -9,7 +9,7 @@ import { api } from '../api.config';
 class UserService {
   async getUserByID(id: number): Promise<UserInfo> {
     const response: ApiResponse<UserInfo> = await api.get(`/users/${id}`);
-
+    console.log('response', response);
     if (!response.ok || !response.data) {
       throw new Error(ERROR_MESSAGE.USER_GET_BY_ID);
     }
