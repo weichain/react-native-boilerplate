@@ -11,10 +11,6 @@ import { type UserInfo } from '@/services/example/api.types';
 export default function TabTwoScreen() {
   const { data, isLoading } = useGetAllUsers();
 
-  const testFunc = () => {
-    return 'asd';
-  };
-
   return (
     <Stack flex={1} alignItems="center" justifyContent="center" bg="$background">
       <Stack flex={1} minWidth={400} minHeight={600} mt={'$10'}>
