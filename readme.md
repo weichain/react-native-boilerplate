@@ -22,6 +22,8 @@ Expo is an invaluable tool for speeding up the development process and for a whi
 
 [Tamagui](https://tamagui.dev/) is our choice for UI components. It's designed both for React Native and Web, offering a consistent and visually appealing UI for your applications. It supports utility props, theming, "styled" components, offers great UI composability/extensibility and thanks to its compiler - is super fast!
 
+### 5. 'Bun' for package manager.
+
 ## Getting Started
 
 To get started with this boilerplate, follow these steps:
@@ -39,7 +41,7 @@ Our project structure is designed for scalability and maintainability. Here's a 
 - `assets/` for fonts and media files. Keep in mind that for simple icons we should **always** check in the lucide library before bloating the assets folder with unoptimized and unnecessary images.
 - `context/` for store related logic. Our Zustand stores should go here.
 - `constants/` for constant declarations and enums. Follow the **SCREAMING_SNAKE_CASE** convention
-- `services/` for API services. Create a new **.service.ts\* file for each service and follow the sample service **user.service.ts**
+- `services/` for API services. Create a new **.service.ts\* file for each service and follow the sample service (**user.service.ts\*\*)
 - `hooks/` for custom hooks.
 - `utils/` for utility functions.
 
@@ -51,9 +53,6 @@ Refer to the code samples and documentation within the project to understand how
 
 It will be periodically updated with more samples and improved structure. Also if there is a new major version of a dependency (e.g. Expo/Reanimated) - the repo will be updated accordingly.
 
-## Future Vision
-
-It would be great for this to evolve into an open-source boilerplate with CLI setup (e.g. choose between a few state management options/add out of the box authentication setup, etc.)
 ## Feedback and Contributions
 
 We encourage team members to provide feedback and suggest improvements to this boilerplate. Feel free to submit issues and pull requests to make our development process even better.
