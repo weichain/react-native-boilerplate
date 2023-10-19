@@ -1,10 +1,10 @@
-import { MyButton } from '../../../src/components/Button';
+import { AnimatedButton } from '../../../src/components/button/AnimatedButton';
 import React from 'react';
 import { View } from 'react-native';
 
 const MyButtonMeta = {
-  title: 'MyButton',
-  component: MyButton,
+  title: 'AnimatedButton',
+  component: AnimatedButton,
   argTypes: {
     onPress: { action: 'pressed the button' },
   },
@@ -22,8 +22,10 @@ const MyButtonMeta = {
 
 export default MyButtonMeta;
 
+// Default variant
 export const Basic = {};
 
+// Other variant
 export const AnotherExample = {
   args: {
     text: 'Another example',

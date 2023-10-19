@@ -1,8 +1,9 @@
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Button, H2, Separator, Spinner, Stack, Switch, Text } from 'tamagui';
+import { H2, Separator, Spinner, Stack, Switch, Text } from 'tamagui';
 
+import { AnimatedButton } from '@/components/button/AnimatedButton';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useGetUserByID } from '@/hooks/example/user/useGetUserInfo';
@@ -36,9 +37,7 @@ function TabOneScreen() {
         </ErrorBoundary>
       </Suspense>
       {/* Note: Example of how easy it is to apply animations */}
-      <Button bg="$blue10" mt="$4" pressStyle={{ bg: '$blue9', scale: 1.2 }} color={'$blue2'} animation={'bouncy'}>
-        Press me!
-      </Button>
+      <AnimatedButton text="Press me!" />
     </Stack>
   );
 }
