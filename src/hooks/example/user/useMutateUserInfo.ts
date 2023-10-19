@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { REACT_QUERY_KEYS } from '@/constants';
+import { ReactQueryKeys } from '@/constants';
 import { userService } from '@/services/example/user.service';
 
 export const useDeleteUser = () => {
@@ -13,7 +13,9 @@ export const useDeleteUser = () => {
       console.log('context is: ', context);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries([REACT_QUERY_KEYS.USERS_COLLECTION]);
+      queryClient.invalidateQueries({
+        queryKey: [ReactQueryKeys.USERS_COLLECTION],
+      });
     },
   });
 };
@@ -25,6 +27,6 @@ export const useSimulateError = () => {
       console.log('error is: ', error);
     },
     // Note: Usually we should rarely want to switch this to true, but it's good to know we can
-    useErrorBoundary: true,
+    throwOnError: true,
   });
 };

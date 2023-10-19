@@ -1,6 +1,6 @@
 import { type ApiResponse } from 'apisauce';
 
-import { ERROR_MESSAGE } from '@/constants';
+import { ErrorMessage } from '@/constants';
 
 import { type UserInfo } from './api.types';
 import { api } from '../api.config';
@@ -11,7 +11,7 @@ class UserService {
     const response: ApiResponse<UserInfo> = await api.get(`/users/${id}`);
     console.log('response', response);
     if (!response.ok || !response.data) {
-      throw new Error(ERROR_MESSAGE.USER_GET_BY_ID);
+      throw new Error(ErrorMessage.USER_GET_BY_ID);
     }
 
     return response.data;
@@ -21,7 +21,7 @@ class UserService {
     const response: ApiResponse<UserInfo[]> = await api.get(`/users`);
 
     if (!response.ok || !response.data) {
-      throw new Error(ERROR_MESSAGE.USER_GET_ALL);
+      throw new Error(ErrorMessage.USER_GET_ALL);
     }
 
     return response.data;
@@ -31,7 +31,7 @@ class UserService {
     const response: ApiResponse<unknown> = await api.delete(`/users/${userID}`);
 
     if (!response.ok || !response.data) {
-      throw new Error(ERROR_MESSAGE.USER_DELETE_BY_ID);
+      throw new Error(ErrorMessage.USER_DELETE_BY_ID);
     }
   }
 
@@ -39,7 +39,7 @@ class UserService {
     const response: ApiResponse<unknown> = await api.delete(`/error`);
 
     if (!response.ok || !response.data) {
-      throw new Error(ERROR_MESSAGE.USER_DELETE_BY_ID);
+      throw new Error(ErrorMessage.USER_DELETE_BY_ID);
     }
   }
 }
