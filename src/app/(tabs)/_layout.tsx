@@ -1,11 +1,27 @@
 import { Code2, Info } from '@tamagui/lucide-icons';
 import { Link, Tabs } from 'expo-router';
-import { Button, useTheme } from 'tamagui';
+import { Button, Stack, useTheme } from 'tamagui';
 
-export default function TabLayout() {
+import { useToggleStorybook } from '@/hooks/useToggleStorybook';
+
+// const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
+
+function TabLayout() {
   const tintColor = useTheme().blue8.val;
+  const { isStorybookEnabled } = useToggleStorybook();
 
-  return (
+  const renderStorybook = () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const StorybookUI = require('../../../.storybook').default;
+
+    return (
+      <Stack style={{ flex: 1 }}>
+        <StorybookUI />
+      </Stack>
+    );
+  };
+
+  return isStorybookEnabled ? (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: tintColor,
@@ -31,5 +47,22 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+  ) : (
+    renderStorybook()
   );
 }
+
+const EntryPoint = TabLayout;
+
+// if (storybookEnabled) {
+//   const StorybookUI = require('../../../.storybook').default;
+//   EntryPoint = () => {
+//     return (
+//       <Stack style={{ flex: 1 }}>
+//         <StorybookUI />
+//       </Stack>
+//     );
+//   };
+// }
+
+export default EntryPoint;

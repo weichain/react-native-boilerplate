@@ -7,7 +7,7 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useGetUserByID } from '@/hooks/example/user/useGetUserInfo';
 
-export default function TabOneScreen() {
+function TabOneScreen() {
   const { reset } = useQueryErrorResetBoundary();
   // Note: Example of using zustand for changing theme preferences
   const { isDarkThemed, toggleTheme } = usePreferencesStore((state) => ({ ...state }));
@@ -43,6 +43,8 @@ export default function TabOneScreen() {
   );
 }
 
+const EntryPoint = TabOneScreen;
+
 // Note: Example of handling errors on a more local level
 const WelcomeMessage = () => {
   // Note: Example of handling data fetching
@@ -53,3 +55,5 @@ const WelcomeMessage = () => {
 };
 
 const FallbackMessage = () => <Text>Something went wrong</Text>;
+
+export default EntryPoint;
