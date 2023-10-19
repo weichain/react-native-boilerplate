@@ -1,9 +1,10 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { TamaguiProvider } from 'tamagui';
 
 import config from '@/../tamagui.config';
+import { queryClient } from '@/config';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useLoadFonts } from '@/hooks/useLoadFonts';
 
@@ -19,8 +20,6 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-
-const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const [loaded, error] = useLoadFonts();

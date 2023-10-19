@@ -1,9 +1,6 @@
 import * as SecureStore from 'expo-secure-store';
-import { MMKV } from 'react-native-mmkv';
 
-export const storage = new MMKV();
-
-// TODO: Implement react-native-mmkv (from mrousavy). It's not added because it would crash expo GO, but once expo subscription is paid and dev builds are used - it should be added
+import { storage } from '@/config';
 
 export const getSecureString = async (key: string) => await SecureStore.getItemAsync(key);
 
@@ -34,8 +31,4 @@ export const removeSecureItem = async (key: string) => {
 
 export const setStorageItem = (key: string, value: string | number | boolean) => {
   storage.set(key, value);
-};
-
-export const getStorageItem = <T>(key: string): T => {
-  return storage.getBoolean(key) as T;
 };

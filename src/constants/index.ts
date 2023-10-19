@@ -10,3 +10,5 @@ export enum ErrorMessage {
   USER_GET_BY_ID = 'Could not fetch user information!',
   USER_DELETE_BY_ID = 'Could not delete user!',
 }
+
+export const APP_ENV = process.env.NODE_ENV;
