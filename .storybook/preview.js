@@ -1,4 +1,5 @@
-import { TamaguiProvider } from 'tamagui';
+import { TamaguiProvider, View } from 'tamagui';
+
 import config from '../tamagui.config';
 
 export const parameters = {
@@ -13,7 +14,9 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <TamaguiProvider config={config}>
-      <Story />
+      <View flex={1} alignItems="center" justifyContent="center">
+        <Story />
+      </View>
     </TamaguiProvider>
   ),
 ];

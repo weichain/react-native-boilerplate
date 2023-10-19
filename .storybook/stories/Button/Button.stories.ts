@@ -1,9 +1,8 @@
 import { AnimatedButton } from '../../../src/components/button/AnimatedButton';
-import React from 'react';
-import { View } from 'react-native';
+import { ComponentMeta } from '@storybook/react-native';
 
-const MyButtonMeta = {
-  title: 'AnimatedButton',
+const WeichainButton: ComponentMeta<typeof AnimatedButton> = {
+  title: 'WeichainButton',
   component: AnimatedButton,
   argTypes: {
     onPress: { action: 'pressed the button' },
@@ -11,16 +10,9 @@ const MyButtonMeta = {
   args: {
     text: 'Hello world',
   },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
 };
 
-export default MyButtonMeta;
+export default WeichainButton;
 
 // Default variant
 export const Basic = {};

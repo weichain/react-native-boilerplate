@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "prepare": "is-ci || husky install",
-    "lint": "bun eslint src",
+    "lint": "bun eslint .",
     "lint:fix": "bun lint --fix",
     "prettier": "npx prettier src --check",
     "prettier:fix": "npx prettier src --write",
