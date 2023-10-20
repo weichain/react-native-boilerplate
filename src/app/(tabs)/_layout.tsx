@@ -1,11 +1,28 @@
 import { Code2, Info } from '@tamagui/lucide-icons';
-import { Link, Tabs } from 'expo-router';
-import { Button, useTheme } from 'tamagui';
+import { Link, Stack, Tabs } from 'expo-router';
+import { useCallback } from 'react';
+import { Button, View, useTheme } from 'tamagui';
+
+import { useToggleStorybook } from '@/hooks/useToggleStorybook';
 
 export default function TabLayout() {
   const tintColor = useTheme().blue8.val;
+  // Note: This logic needs to be wherever the initial route is. In this case its the (tabs) layout.
+  const { isStorybookEnabled } = useToggleStorybook();
 
-  return (
+  const renderStorybook = useCallback(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const StorybookUI = require('../../../.storybook').default;
+
+    return (
+      <View flex={1}>
+        <Stack.Screen />
+        <StorybookUI />
+      </View>
+    );
+  }, [isStorybookEnabled]);
+
+  return isStorybookEnabled ? (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: tintColor,
@@ -31,5 +48,7 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+  ) : (
+    renderStorybook()
   );
 }

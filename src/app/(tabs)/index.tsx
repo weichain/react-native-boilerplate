@@ -1,13 +1,15 @@
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Button, H2, Separator, Spinner, Stack, Switch, Text } from 'tamagui';
+import { H2, Separator, Spinner, Stack, Switch } from 'tamagui';
 
+import { AnimatedButton } from '@/components/button/AnimatedButton';
 import EditScreenInfo from '@/components/EditScreenInfo';
+import { Text } from '@/components/text/Text';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useGetUserByID } from '@/hooks/example/user/useGetUserInfo';
 
-export default function TabOneScreen() {
+function TabOneScreen() {
   const { reset } = useQueryErrorResetBoundary();
   // Note: Example of using zustand for changing theme preferences
   const { isDarkThemed, toggleTheme } = usePreferencesStore((state) => ({ ...state }));
@@ -36,12 +38,12 @@ export default function TabOneScreen() {
         </ErrorBoundary>
       </Suspense>
       {/* Note: Example of how easy it is to apply animations */}
-      <Button bg="$blue10" mt="$4" pressStyle={{ bg: '$blue9', scale: 1.2 }} color={'$blue2'} animation={'bouncy'}>
-        Press me!
-      </Button>
+      <AnimatedButton text="Press me!" />
     </Stack>
   );
 }
+
+const EntryPoint = TabOneScreen;
 
 // Note: Example of handling errors on a more local level
 const WelcomeMessage = () => {
@@ -53,3 +55,5 @@ const WelcomeMessage = () => {
 };
 
 const FallbackMessage = () => <Text>Something went wrong</Text>;
+
+export default EntryPoint;

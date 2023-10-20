@@ -1,0 +1,48 @@
+{
+  "cli": {
+    "version": ">= 3.5.2"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "channel": "dev",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "cache": {
+        "disabled": true
+      },
+      "ios": {
+        "image": "latest"
+      },
+      "android": {
+        "image": "latest"
+      },
+      "bun": "1.0.5",
+      "node": "18.12.0"
+    },
+    "simulator": {
+      "extends": "development",
+      "ios": {
+        "image": "latest",
+        "simulator": true
+      }
+    }
+  },
+  "submit": {
+    "preview": {
+      "ios": {
+        "appleId": "evlogi@weichain.tech",
+        "ascAppId": "6444183129",
+        "appleTeamId": "9R34HVFQG2"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleId": "evlogi@weichain.tech",
+        "ascAppId": "6444870315",
+        "appleTeamId": "9R34HVFQG2"
+      }
+    }
+  }
+}
