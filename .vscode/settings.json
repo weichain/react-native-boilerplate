@@ -2,7 +2,8 @@
   "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": [
-    "source.formatDocument"
+    "source.formatDocument",
+    "source.organizeImports.biome"
   ],
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
