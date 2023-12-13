@@ -4,18 +4,18 @@ import { useMMKVBoolean } from 'react-native-mmkv';
 import { APP_ENV } from '@/constants';
 
 export const useToggleStorybook = () => {
-  const [isStorybookEnabled, setIsStorybookEnabled] = useMMKVBoolean('isStorybookEnabled');
+  const [isStorybookDisabled, setIsStorybookDisabled] = useMMKVBoolean('isStorybookDisabled');
 
   useEffect(() => {
     if (APP_ENV === 'development') {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const { registerDevMenuItems } = require('expo-dev-menu');
-
+      console.log('HERE');
       const devMenuItems = [
         {
           name: 'Toggle storybook',
           callback: async () => {
-            setIsStorybookEnabled((prev) => !prev);
+            setIsStorybookDisabled((prev) => !prev);
           },
         },
       ];
@@ -24,5 +24,5 @@ export const useToggleStorybook = () => {
     }
   }, []);
 
-  return APP_ENV === 'development' ? { isStorybookEnabled } : { isStorybookEnabled: false };
+  return APP_ENV === 'development' ? { isStorybookEnabled: !isStorybookDisabled } : { isStorybookEnabled: false };
 };
