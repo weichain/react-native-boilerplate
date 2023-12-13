@@ -2,8 +2,8 @@ import { type ApiResponse } from 'apisauce';
 
 import { ErrorMessage } from '@/constants';
 
-import { type UserInfo } from './api.types';
 import { api } from '../api.config';
+import { type UserInfo } from './api.types';
 
 // Note: Example of how to manage/write api services
 class UserService {

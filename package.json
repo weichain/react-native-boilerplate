@@ -9,9 +9,9 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "prepare": "is-ci || husky install",
-    "lint": "npx @biomejs/biome lint ./src",
+    "lint": "biome lint ./src",
     "lint:fix": "npx @biomejs/biome check --apply ./src",
-    "ci:check": "npx @biomejs/biome ci ./src",
+    "ci:check": "biome ci ./src",
     "storybook-generate": "sb-rn-get-stories",
     "storybook-watch": "sb-rn-watcher"
   },
