@@ -18,7 +18,6 @@
       "android": {
         "image": "latest"
       },
-      "bun": "1.0.5",
       "node": "18.12.0"
     },
     "simulator": {

@@ -15,13 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
-          bun-version: 1.0.5
-      - name: install
-        run: bun install
-      - name: Prettier
-        run: bun prettier
-      - name: ESLint
-        run: bun lint
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v1
+        with:
+          version: 1.2.2
+      - name: Run Biome
+        run: npx biome ci ./src

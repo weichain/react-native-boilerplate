@@ -1,4 +1,4 @@
 {
-  "*.ts": ["prettier src --write", "eslint ."],
-  "*.tsx": ["prettier src --write", "eslint ."]
+  "*.ts": ["biome ./src"],
+  "*.tsx": ["biome ./src"]
 }

@@ -1,4 +1,4 @@
-import { styled, XStack } from 'tamagui';
+import { XStack, styled } from 'tamagui';
 
 // Example of how to add simple 'styled' variants
 export const Row = styled(XStack, {

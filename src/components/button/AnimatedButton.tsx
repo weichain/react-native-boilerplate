@@ -7,7 +7,14 @@ interface IProps extends ButtonProps {
 
 export const AnimatedButton = ({ text, ...rest }: IProps) => {
   return (
-    <Button bg="$blue10" mt="$4" pressStyle={{ bg: '$blue9', scale: 1.2 }} color={'$blue2'} animation={'bouncy'} {...rest}>
+    <Button
+      bg="$blue10"
+      mt="$4"
+      pressStyle={{ bg: '$blue9', scale: 1.2 }}
+      color={'$blue2'}
+      animation={'bouncy'}
+      {...rest}
+    >
       {text}
     </Button>
   );

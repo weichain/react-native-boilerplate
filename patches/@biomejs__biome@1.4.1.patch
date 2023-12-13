@@ -1,0 +1,14 @@
+diff --git a/bin/biome b/bin/biome
+index 1f083650770cde6404ef01bbd37d40cec9525114..99e0cee36955542d951132ba1c845c74a661a540 100644
+--- a/bin/biome
++++ b/bin/biome
+@@ -7,7 +7,8 @@ const PLATFORMS = {
+ 		arm64: "@biomejs/cli-win32-arm64/biome.exe",
+ 	},
+ 	darwin: {
+-		x64: "@biomejs/cli-darwin-x64/biome",
++		// For some reason husky doesnt recognize that the m1/2 macOS systems are arm64 abd tries to search for x64 binaries. This "fix" means that devs with intel macOS systems will have trouble running husky when this patch is in place.
++		x64: "@biomejs/cli-darwin-arm64/biome",
+ 		arm64: "@biomejs/cli-darwin-arm64/biome",
+ 	},
+ 	linux: {
