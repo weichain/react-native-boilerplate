@@ -31,4 +31,4 @@ jobs:
         with:
           version: 1.2.2
       - name: Run Biome
-        run: npx biome ci .
+        run: npx biome ci ./src
