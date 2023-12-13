@@ -80,5 +80,10 @@
   "private": true,
   "lint-staged": {
     "*.--noEmit": "biome check --apply ./src"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@biomejs/biome@1.4.1": "patches/@biomejs__biome@1.4.1.patch"
+    }
   }
 }

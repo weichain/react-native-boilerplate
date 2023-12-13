@@ -7,6 +7,11 @@ settings:
 overrides:
   react-refresh: ~0.14.0
 
+patchedDependencies:
+  '@biomejs/biome@1.4.1':
+    hash: vetlniox3ldx6p256hzpvdftci
+    path: patches/@biomejs__biome@1.4.1.patch
+
 dependencies:
   '@expo/vector-icons':
     specifier: ^13.0.0
@@ -105,7 +110,7 @@ devDependencies:
     version: 7.20.2
   '@biomejs/biome':
     specifier: 1.4.1
-    version: 1.4.1
+    version: 1.4.1(patch_hash=vetlniox3ldx6p256hzpvdftci)
   '@react-native-async-storage/async-storage':
     specifier: ^1.19.3
     version: 1.19.3(react-native@0.72.5)
@@ -1621,7 +1626,7 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@biomejs/biome@1.4.1:
+  /@biomejs/biome@1.4.1(patch_hash=vetlniox3ldx6p256hzpvdftci):
     resolution: {integrity: sha512-JccVAwPbhi37pdxbAGmaOBjUTKEwEjWAhl7rKkVVuXHo4MLASXJ5HR8BTgrImi4/7rTBsGz1tgVD1Kwv1CHGRg==}
     engines: {node: '>=14.*'}
     hasBin: true
@@ -1634,6 +1639,7 @@ packages:
       '@biomejs/cli-win32-arm64': 1.4.1
       '@biomejs/cli-win32-x64': 1.4.1
     dev: true
+    patched: true
 
   /@biomejs/cli-darwin-arm64@1.4.1:
     resolution: {integrity: sha512-PZWy2Idndqux38p6AXSDQM2ldRAWi32bvb7bMbTN0ALzpWYMYnxd71ornatumSSJYoNhKmxzDLq+jct7nZJ79w==}
