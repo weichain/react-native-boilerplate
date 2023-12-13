@@ -22,7 +22,7 @@ export const useToggleStorybook = () => {
 
       registerDevMenuItems(devMenuItems);
     }
-  }, [setIsStorybookDisabled]);
+  }, []);
 
   return APP_ENV === 'development' ? { isStorybookEnabled: !isStorybookDisabled } : { isStorybookEnabled: false };
 };
