@@ -1,4 +1,0 @@
-{
-  "*.ts": ["biome ./src"],
-  "*.tsx": ["biome ./src"]
-}
