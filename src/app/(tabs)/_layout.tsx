@@ -20,7 +20,7 @@ export default function TabLayout() {
         <StorybookUI />
       </View>
     );
-  }, [isStorybookEnabled]);
+  }, []);
 
   return isStorybookEnabled ? (
     <Tabs
@@ -35,7 +35,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Code2 size="$2" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
-              <Button icon={<Info size="$1" />} bg={'#fff'}></Button>
+              <Button icon={<Info size="$1" />} bg={'#fff'} />
             </Link>
           ),
         }}

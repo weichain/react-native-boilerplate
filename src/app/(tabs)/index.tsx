@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { H2, Separator, Spinner, Stack, Switch } from 'tamagui';
 
-import { AnimatedButton } from '@/components/button/AnimatedButton';
 import EditScreenInfo from '@/components/EditScreenInfo';
+import { AnimatedButton } from '@/components/button/AnimatedButton';
 import { Text } from '@/components/text/Text';
 import { usePreferencesStore } from '@/context/example/userPreferencesStore';
 import { useGetUserByID } from '@/hooks/example/user/useGetUserInfo';

@@ -17,7 +17,7 @@ class UserService {
   }
 
   async getAll(): Promise<UserInfo[]> {
-    const response: ApiResponse<UserInfo[]> = await api.get(`/users`);
+    const response: ApiResponse<UserInfo[]> = await api.get('/users');
 
     if (!response.ok || !response.data) {
       throw new Error(ErrorMessage.USER_GET_ALL);
@@ -35,7 +35,7 @@ class UserService {
   }
 
   async simulateError(): Promise<void> {
-    const response: ApiResponse<unknown> = await api.delete(`/error`);
+    const response: ApiResponse<unknown> = await api.delete('/error');
 
     if (!response.ok || !response.data) {
       throw new Error(ErrorMessage.USER_DELETE_BY_ID);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text as TamaguiText, type TextProps } from 'tamagui';
 
-interface IProps extends TextProps {}
+type IProps = TextProps;
 
 export const Text = ({ children, ...rest }: IProps) => {
   return <TamaguiText {...rest}>{children}</TamaguiText>;
