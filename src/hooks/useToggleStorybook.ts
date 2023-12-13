@@ -7,7 +7,7 @@ export const useToggleStorybook = () => {
   const [isStorybookDisabled, setIsStorybookDisabled] = useMMKVBoolean('isStorybookDisabled');
 
   useEffect(() => {
-    if (APP_ENV === 'development') {
+    if (APP_ENV === `development`) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const { registerDevMenuItems } = require('expo-dev-menu');
       console.log('HERE');
@@ -22,7 +22,7 @@ export const useToggleStorybook = () => {
 
       registerDevMenuItems(devMenuItems);
     }
-  }, []);
+  }, [setIsStorybookDisabled]);
 
   return APP_ENV === 'development' ? { isStorybookEnabled: !isStorybookDisabled } : { isStorybookEnabled: false };
 };

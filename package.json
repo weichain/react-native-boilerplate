@@ -79,6 +79,6 @@
   },
   "private": true,
   "lint-staged": {
-    "*.--noEmit": "prettier --write"
+    "*.--noEmit": "biome check --apply ./src"
   }
 }
